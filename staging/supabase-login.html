@@ -427,16 +427,16 @@
         //
         // ENVIRONMENT (2026-09-28): the same file is served twice by GitHub Pages —
         //   /supabase-login.html          → PRODUCTION Supabase (custom domain auth.novapoker.app)
-        //   /staging/supabase-login.html  → STAGING Supabase branch "preprod" (isnznfccqpizdtfgvjdt)
+        //   /staging/supabase-login.html  → STAGING Supabase project "nova-poker-staging-us" (wkqdhmoqdisyckoumtsw, us-east-1)
         // The environment is chosen by the PATH, never by a query string, because Supabase
         // OAuth/e-mail links come back to `origin + pathname` and would drop a query.
         // Keep /staging/supabase-login.html a byte-identical copy of this file (sync-staging.sh).
         var IS_STAGING = /\/staging\//.test(window.location.pathname);
         var SUPABASE_URL = IS_STAGING
-            ? 'https://isnznfccqpizdtfgvjdt.supabase.co'
+            ? 'https://wkqdhmoqdisyckoumtsw.supabase.co'
             : 'https://auth.novapoker.app';
         var SUPABASE_ANON_KEY = IS_STAGING
-            ? 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzbnpuZmNjcXBpemR0Zmd2amR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk0NTczOTIsImV4cCI6MjEwNTAzMzM5Mn0.uicYR-ocfJBgTtlRvJIlH6GG7HVZTb1bO5-ukNWiQ-8'
+            ? 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndrcWRobW9xZGlzeWNrb3VtdHN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQyNDkwMTIsImV4cCI6MjEwOTgyNTAxMn0.2QmeRa6Qj3izRUZS5jckSZnAIQVO_ezpWF6rrgkHnvI'
             : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0anFveGRxcGRjeHJjcXdza3V1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0NTM1NjcsImV4cCI6MjA4MTAyOTU2N30.7SnUPGhtSkmaML_wDx_smmtrGyS4qiNHFk977_2YZ34';
         var UNITY_CALLBACK = 'novapoker://callback';
         // Where Supabase sends the user back after an e-mail confirmation / OAuth round trip:
